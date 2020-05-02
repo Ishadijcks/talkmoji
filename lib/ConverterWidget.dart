@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:talkmoji/ConversionFactory.dart';
 import 'package:talkmoji/converter.dart';
 
@@ -25,29 +26,40 @@ class _ConverterWidgetState extends State<ConverterWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(border: Border.all()),
-            margin: EdgeInsets.all(16.0),
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _controller,
-              enabled: false,
-              maxLines: 8,
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(border: Border.all()),
+              margin: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _controller,
+                enabled: false,
+                maxLines: 20,
+              ),
             ),
           ),
-          Container(
-            decoration: BoxDecoration(border: Border.all()),
-            margin: EdgeInsets.all(16.0),
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              maxLines: 8,
-              onChanged: (text) {
-                setState(
-                  () {
-                    _controller.text = converter.convert(text);
-                  },
-                );
-              },
+          RaisedButton(
+            child: Text("Copy to clipboard", style: TextStyle(color: Colors.white)),
+            color: Colors.purple,
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: _controller.text));
+            },
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(border: Border.all()),
+              margin: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                maxLines: 20,
+                onChanged: (text) {
+                  setState(
+                    () {
+                      _controller.text = converter.convert(text);
+                    },
+                  );
+                },
+              ),
             ),
           ),
         ],
