@@ -19,7 +19,7 @@ class Talkmoji extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Talkmoji 🗣️"),
+          title: Text("Say more. Talkmoji 🗣️"),
         ),
         body: Center(
           child: ConverterWidget(),
