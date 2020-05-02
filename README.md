@@ -8,7 +8,7 @@ No more shall you feel old! Because with Talkmoji, you can feel 👴 instead!
 Talkmoji can instantly spice up your digital presence to make it 🔥💯👌
 
 ## How to use it
-Paste your boring old-person text and retrieve the 😎 text to send to your fellow kids.
+Paste your boring old-person text and retrieve the 😎 text.
 
 So simple, even you can do it.
 
