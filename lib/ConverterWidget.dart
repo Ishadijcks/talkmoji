@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'package:talkmoji/ConversionFactory.dart';
 import 'package:talkmoji/converter.dart';
@@ -47,6 +48,15 @@ class _ConverterWidgetState extends State<ConverterWidget> {
                 color: Colors.purple,
                 onPressed: () {
                   Clipboard.setData(ClipboardData(text: _controller.text));
+
+                  Fluttertoast.showToast(
+                      msg: "Talkmoji copied to clipboard",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.purple,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
                 },
               ),
               RaisedButton(
