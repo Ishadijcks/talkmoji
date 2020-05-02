@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:talkmoji/ConversionFactory.dart';
 import 'package:talkmoji/converter.dart';

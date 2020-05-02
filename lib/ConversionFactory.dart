@@ -14,8 +14,6 @@ class ConversionFactory {
     final mappings = data["mapping"];
     List<Conversion> conversions = [];
     for (var key in mappings.keys) {
-      print(key + ": " + mappings[key].toString());
-
       if (mappings[key] is String) {
         conversions.add(new SingleConversion(key, mappings[key]));
       } else if (mappings[key] is List) {
