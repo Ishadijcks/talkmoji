@@ -1,7 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:share/share.dart';
 import 'package:talkmoji/ConversionFactory.dart';
 import 'package:talkmoji/converter.dart';
 
@@ -38,12 +39,24 @@ class _ConverterWidgetState extends State<ConverterWidget> {
               ),
             ),
           ),
-          RaisedButton(
-            child: Text("Copy to clipboard", style: TextStyle(color: Colors.white)),
-            color: Colors.purple,
-            onPressed: () {
-              Clipboard.setData(ClipboardData(text: _controller.text));
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              RaisedButton(
+                child: Text("Copy", style: TextStyle(color: Colors.white)),
+                color: Colors.purple,
+                onPressed: () {
+                  Share.share('check out my website https://example.com');
+                },
+              ),
+              RaisedButton(
+                child: Text("Share", style: TextStyle(color: Colors.white)),
+                color: Colors.purple,
+                onPressed: () {
+                  Share.share(_controller.text);
+                },
+              ),
+            ],
           ),
           Expanded(
             child: Container(
